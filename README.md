@@ -14,7 +14,7 @@ Driver Class:	org.h2.Driver
 JDBC URL:	jdbc:h2:mem:db   
 User Name:	artem   
 Password:	1234   
-![Подключение к БД](https://github.com/artemonchergithub/Vikings-and-Dragons/blob/main/images/%D0%92%D1%85%D0%BE%D0%B4%20%D0%B2%20%D0%B1%D0%B4.png)
+![Подключение к БД](https://github.com/artemonchergithub/Vikings-and-Dragons/blob/main/images/%D0%92%D1%85%D0%BE%D0%B4%20%D0%B2%20%D0%B1%D0%B4.png)   
 И нажать кнопку "connect"
 
 Далее обновите страницу vikings для дальнейшей работы с таблицами.
@@ -24,6 +24,9 @@ Password:	1234
 # Как пользоваться
 
 Функционал интуитивно понятен. За исключение, возможно, сортировки по столбцам. Для этого достаточно нажать на название колонки (при повторном нажатии меняется порядок сортировки)
+
+
+# Структура таблиц
 
 Вылегжанин Артём Александрович, 2023, 4 курс, 4 группа
 
