@@ -10,7 +10,6 @@ import java.net.URI
 @SpringBootApplication
 class VikingsApplication
 
-private var ctx: ConfigurableApplicationContext? = null
 
 fun main(args: Array<String>) {
     try {
