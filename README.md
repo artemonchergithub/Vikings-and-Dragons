@@ -7,12 +7,14 @@
 Откроется две вкладки:
 - одна для подключения базы данных (h2-console)
 - вторая для работы с таблицами (vikings)
-В первой вкладке необходимо ввести следующие данные:
-Driver Class:	org.h2.Driver
-JDBC URL:	jdbc:h2:mem:db
-User Name:	artem
-Password:	1234
 
+
+В первой вкладке необходимо ввести следующие данные:    
+Driver Class:	org.h2.Driver   
+JDBC URL:	jdbc:h2:mem:db   
+User Name:	artem   
+Password:	1234   
+![Подключение к БД](https://github.com/artemonchergithub/Vikings-and-Dragons/blob/main/images/%D0%92%D1%85%D0%BE%D0%B4%20%D0%B2%20%D0%B1%D0%B4.png)
 И нажать кнопку "connect"
 
 Далее обновите страницу vikings для дальнейшей работы с таблицами.
