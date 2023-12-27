@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dragon List</title>
+    <!-- Подключение Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("th.sortable").on("click", function () {
+                const columnName = $(this).attr("data-column");
+                const currentUrl = window.location.href;
+
+                // Определяем порядок сортировки (ASC/DESC)
+                let sortOrder = "asc";
+                if (currentUrl.includes(`sort=${columnName}&`)) {
+                    sortOrder = currentUrl.includes(`sort=${columnName}&order=asc`) ? "desc" : "asc";
+                }
+
+                const newUrl = `${currentUrl.split('?')[0]}?sort=${columnName}&order=${sortOrder}`;
+                window.location.href = newUrl;
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>Dragon List</h1>
+    <a href="/dragons/new" class="btn btn-primary">Add Dragon</a>
+    <a href="/vikings" class="btn btn-secondary">View Vikings</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="sortable" data-column="name">Name</th>
+            <th class="sortable" data-column="discoveryDate">Discovery Date</th>
+            <th class="sortable" data-column="length">Length</th>
+            <th class="sortable" data-column="width">Width</th>
+            <th class="sortable" data-column="wingspan">Wingspan</th>
+            <th class="sortable" data-column="lifeExpectancy">Life Expectancy</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Использование Thymeleaf для отображения данных из модели -->
+        <tr th:each="dragon : ${dragons}">
+            <td th:text="${dragon.name}"></td>
+            <td th:text="${dragon.discoveryDate}"></td>
+            <td th:text="${dragon.length}"></td>
+            <td th:text="${dragon.width}"></td>
+            <td th:text="${dragon.wingspan}"></td>
+            <td th:text="${dragon.lifeExpectancy}"></td>
+            <td>
+                <!-- Кнопки для удаления, редактирования и просмотра дракона -->
+                <a th:href="@{'/dragons/' + ${dragon.id}}">Show</a>
+                <a th:href="@{'/dragons/' + ${dragon.id} + '/edit'}">Edit</a>
+                <a th:href="@{'/dragons/' + ${dragon.id} + '/delete'}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dragon Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Dragon Details</h1>
+    <div>
+        <p><strong>Name:</strong> <span th:text="${dragon.name}"></span></p>
+        <p><strong>Discovery Date:</strong> <span th:text="${dragon.discoveryDate}"></span></p>
+        <p><strong>Length:</strong> <span th:text="${dragon.length}"></span></p>
+        <p><strong>Width:</strong> <span th:text="${dragon.width}"></span></p>
+        <p><strong>Wingspan:</strong> <span th:text="${dragon.wingspan}"></span></p>
+        <p><strong>Life Expectancy:</strong> <span th:text="${dragon.lifeExpectancy}"></span></p>
+        <!-- Другие детали о драконе -->
+    </div>
+    <a href="/dragons" class="btn btn-primary">Back to Dragons</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Viking</title>
+</head>
+<body>
+<h1>Edit Viking</h1>
+<form action="/vikings/{id}/edit" method="post">
+    <input type="hidden" th:field="*{viking.id}"/> <!-- Скрытое поле для ID -->
+
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" th:field="*{viking.name}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="birthDate">Birth Date:</label>
+        <input type="date" class="form-control" id="birthDate" th:field="*{viking.birthDate}">
+    </div>
+
+    <div class="form-group">
+        <label for="height">Height:</label>
+        <input type="number" class="form-control" id="height" th:field="*{viking.height}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="flightTime">Flight Time:</label>
+        <input type="number" class="form-control" id="flightTime" th:field="*{viking.flightTime}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="dragon">Dragon:</label>
+        <select class="form-control" id="dragon" th:field="*{viking.dragon}">
+            <option value="">No Dragon</option>
+            <th:block th:each="dragon : ${dragons}">
+                <option th:value="${dragon.id}" th:text="${dragon.name}"
+                        th:selected="${viking.dragon != null and viking.dragon.id == dragon.id}"></option>
+            </th:block>
+        </select>
+    </div>
+    <!-- ... -->
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+</body>
+</html>

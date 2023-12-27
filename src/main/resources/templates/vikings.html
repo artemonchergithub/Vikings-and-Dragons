@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Viking List</title>
+    <!-- Подключение Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("th.sortable").on("click", function () {
+                const columnName = $(this).attr("data-column");
+                const currentUrl = window.location.href;
+
+                let sortOrder = "asc";
+                if (currentUrl.includes(`sort=${columnName}&`)) {
+                    sortOrder = currentUrl.includes(`sort=${columnName}&order=asc`) ? "desc" : "asc";
+                }
+
+                const newUrl = `${currentUrl.split('?')[0]}?sort=${columnName}&order=${sortOrder}`;
+                window.location.href = newUrl;
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>Viking List</h1>
+    <a href="/vikings/new" class="btn btn-primary">Add Viking</a>
+    <a href="/dragons" class="btn btn-secondary">View Dragons</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="sortable" data-column="name">Name</th>
+            <th class="sortable" data-column="birthDate">Birth Date</th>
+            <th class="sortable" data-column="height">Height</th>
+            <th class="sortable" data-column="flightTime">Flight Time</th>
+            <th>Dragon</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Использование Thymeleaf для отображения данных из модели -->
+        <tr th:each="viking : ${vikings}">
+            <td th:text="${viking.name}"></td>
+            <td th:text="${viking.birthDate}"></td>
+            <td th:text="${viking.height}"></td>
+            <td th:text="${viking.flightTime}"></td>
+            <td th:text="${viking.dragon != null} ? ${viking.dragon.name} : 'No Dragon'"></td>
+            <td>
+                <!-- Кнопки для удаления, редактирования и просмотра дракона -->
+                <a th:href="@{'/vikings/' + ${viking.id}}">Show</a>
+                <a th:href="@{'/vikings/' + ${viking.id} + '/edit'}">Edit</a>
+                <a th:href="@{'/vikings/' + ${viking.id} + '/delete'}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

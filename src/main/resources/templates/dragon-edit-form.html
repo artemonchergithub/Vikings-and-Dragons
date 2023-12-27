@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Dragon</title>
+</head>
+<body>
+<h1>Edit Dragon</h1>
+<form action="/dragons/{id}/edit" method="post">
+    <input type="hidden" th:field="*{dragon.id}"/> <!-- Скрытое поле для ID -->
+
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" th:field="*{dragon.name}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="discoveryDate">Discovery Date:</label>
+        <input type="date" class="form-control" id="discoveryDate" th:field="*{dragon.discoveryDate}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="length">Length:</label>
+        <input type="number" class="form-control" id="length" th:field="*{dragon.length}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="width">Width:</label>
+        <input type="number" class="form-control" id="width" th:field="*{dragon.width}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="wingspan">Wingspan:</label>
+        <input type="number" class="form-control" id="wingspan" th:field="*{dragon.wingspan}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="lifeExpectancy">Life Expectancy:</label>
+        <input type="number" class="form-control" id="lifeExpectancy" th:field="*{dragon.lifeExpectancy}"/>
+    </div>
+    <!-- ... -->
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+</body>
+</html>

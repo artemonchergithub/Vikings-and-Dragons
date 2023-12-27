@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Viking</title>
+</head>
+<body>
+<h1>New Viking</h1>
+<form action="/vikings/new" method="post" th:object="${viking}">
+    <!-- Поля для ввода информации о викинге -->
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}">
+    </div>
+    <div>
+        <label for="birthDate">Birth Date:</label>
+        <input type="date" id="birthDate" th:field="*{birthDate}">
+    </div>
+    <div>
+        <label for="height">Height:</label>
+        <input type="number" id="height" step="0.01" th:field="*{height}">
+    </div>
+    <div>
+        <label for="flightTime">Flight Time:</label>
+        <input type="number" id="flightTime" th:field="*{flightTime}">
+    </div>
+    <div class="form-group">
+        <label for="dragon">Dragon:</label>
+        <select class="form-control" id="dragon" name="dragon">
+            <option value="">No Dragon</option>
+            <!-- Используем Thymeleaf для отображения списка драконов -->
+            <th:block th:each="dragon : ${dragons}">
+                <option th:value="${dragon.id}" th:text="${dragon.name}"></option>
+            </th:block>
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Create">
+    </div>
+</form>
+</body>
+</html>

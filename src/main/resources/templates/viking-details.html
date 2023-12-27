@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Viking Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Viking Details</h1>
+    <div>
+        <p><strong>Name:</strong> <span th:text="${viking.name}"></span></p>
+        <p><strong>Birth Date:</strong> <span th:text="${viking.birthDate}"></span></p>
+        <p><strong>Height:</strong> <span th:text="${viking.height}"></span></p>
+        <p><strong>Flight Time:</strong> <span th:text="${viking.flightTime}"></span></p>
+        <p><strong>Dragon:</strong> <span th:text="${viking.dragon?.name}"></span></p>
+        <!-- Другие детали о викинге -->
+    </div>
+    <a href="/vikings" class="btn btn-primary">Back to Vikings</a>
+</div>
+</body>
+</html>
